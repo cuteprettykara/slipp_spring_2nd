@@ -9,9 +9,9 @@
 
   <logger name="net.slipp" level="debug"/>
   
-  <logger name="org.springframework" leve="info" />
-  <logger name="org.springframework.web.bind.annotation.support.HandlerMethodInvoker" leve="info" />
-  <logger name="org.springframework.web.servlet.DispatcherServlet" leve="info" />
+  <logger name="org.springframework" level="warn" />
+  <logger name="org.springframework.web.bind.annotation.support.HandlerMethodInvoker" level="warn" />
+  <logger name="org.springframework.web.servlet.DispatcherServlet" level="warn" />
   
   
   <root level="info">
