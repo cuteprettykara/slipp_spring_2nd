@@ -23,6 +23,20 @@
 			<artifactId>logback-classic</artifactId>
 			<version>1.2.3</version>
 		</dependency>
+		
+		<!-- DB -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.197</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -41,7 +55,6 @@
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
