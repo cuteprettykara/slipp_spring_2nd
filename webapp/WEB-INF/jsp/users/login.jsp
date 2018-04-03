@@ -17,7 +17,7 @@
 			<div class="span12">
 				<section id="typography">
 				<div class="page-header">
-					<h1>회원가입</h1>
+					<h1>로그인</h1>
 				</div>
 				
 				<form:form modelAttribute="authenticate" cssClass="form-horizontal" action="/users/login" method="post" >

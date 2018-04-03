@@ -68,6 +68,12 @@ public class User {
 		return this.password.equals(authenticate.getPassword());
 	}
 	
+	public boolean matchUserId(String sessionUserId) {
+		if (sessionUserId == null) return false;
+		
+		return this.userId.equals(sessionUserId);
+	}
+	
 	@Override
 	public String toString() {
 		return "User [userId=" + userId  + ", name=" + name + ", email=" + email + "]";

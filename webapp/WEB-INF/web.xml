@@ -15,7 +15,7 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -28,21 +28,39 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
-	
+
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!-- The front controller of this Spring Web application, responsible for handling all application requests -->
+	<filter>
+		<filter-name>httpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>httpMethodFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>getMethodConvertingFilter</filter-name>
+		<filter-class>net.slipp.web.GetMethodConvertingFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>getMethodConvertingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
+	<!-- The front controller of this Spring Web application, responsible for 
+		handling all application requests -->
 	<servlet>
 		<servlet-name>slipp</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<!-- <init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>location</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup> -->
+		<!-- <init-param> <param-name>contextConfigLocation</param-name> <param-value>location</param-value> 
+			</init-param> <load-on-startup>1</load-on-startup> -->
 	</servlet>
 
 	<!-- Map all requests to the DispatcherServlet for handling -->

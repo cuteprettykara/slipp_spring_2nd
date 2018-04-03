@@ -19,12 +19,25 @@
 					<h1>회원가입</h1>
 				</div>
 				
-				<form:form modelAttribute="user" cssClass="form-horizontal" action="/users" method="post" >
+				<c:set var="method" value="put" />
+				<c:if test="${empty user.userId }">
+					<c:set var="method" value="post" />
+				</c:if>
+				
+				<form:form modelAttribute="user" cssClass="form-horizontal" action="/users" method="${method}" >
 					<div class="control-group">
 						<label class="control-label" for="userId">사용자 아이디</label>
 						<div class="controls">
-							<form:input path="userId"/>
-							<form:errors path="userId" cssClass="error" />
+							<c:choose>
+								<c:when test="${empty user.userId}">
+									<form:input path="userId"/>
+									<form:errors path="userId" cssClass="error" />
+								</c:when>
+								<c:otherwise>
+									${user.userId}
+									<form:hidden path="userId"/>
+								</c:otherwise>	
+							</c:choose>
 						</div>
 					</div>
 					<div class="control-group">
@@ -50,7 +63,16 @@
 					</div>
 					<div class="control-group">
 						<div class="controls">
-							<button type="submit" class="btn btn-primary">회원가입</button>
+							<button type="submit" class="btn btn-primary">
+								<c:choose>
+									<c:when test="${empty user.userId}">
+										회원가입
+									</c:when>
+									<c:otherwise>
+										개인정보 수정
+									</c:otherwise>
+								</c:choose>
+							</button>
 						</div>
 					</div>				
 				</form:form>

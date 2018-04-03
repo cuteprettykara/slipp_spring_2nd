@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.annotation.PostConstruct;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,6 +55,11 @@ public class UserDao extends JdbcDaoSupport {
 	public void create(User user) {
 		String sql = "insert into USERS values(?,?,?,?)";
 		getJdbcTemplate().update(sql, user.getUserId(), user.getPassword(), user.getName(), user.getEmail());
+	}
+
+	public void update(User user) {
+		String sql = "update USERS set password=?, name=?, email=? where userId=?";
+		getJdbcTemplate().update(sql, user.getPassword(), user.getName(), user.getEmail(), user.getUserId());
 	}
 	
 	
