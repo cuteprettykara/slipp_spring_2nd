@@ -13,6 +13,11 @@ public class Authenticate {
 	public Authenticate() {
 	}
 	
+	public Authenticate(String userId, String password) {
+		this.userId = userId;
+		this.password = password;
+	}
+
 	public String getUserId() {
 		return userId;
 	}

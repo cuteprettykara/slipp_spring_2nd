@@ -1,7 +1,9 @@
 package net.slipp.domain.users;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 
@@ -44,4 +46,19 @@ public class UserTest {
 		}
 	}
 
+	@Test
+	public void matchPassword() throws Exception {
+		Authenticate authenticate = new Authenticate("userId", "1111");
+		User user = new User("userId", "1111", "남상범", "cuteprettykara@gmail.com");
+		
+		assertTrue(user.matchPassword(authenticate));
+	}
+	
+	@Test
+	public void notMatchPassword() throws Exception {
+		Authenticate authenticate = new Authenticate("userId", "2222");
+		User user = new User("userId", "1111", "남상범", "cuteprettykara@gmail.com");
+		
+		assertFalse(user.matchPassword(authenticate));
+	}
 }
