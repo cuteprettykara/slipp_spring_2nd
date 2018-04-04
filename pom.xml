@@ -148,6 +148,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
+<<<<<<< HEAD
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>5.0.7</version>
@@ -163,6 +164,23 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+=======
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.0.7</version>
+                <configuration>
+                    <url>jdbc:h2:~/slipp</url>
+                    <user>sa</user>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.h2database</groupId>
+                        <artifactId>h2</artifactId>
+                        <version>${h2.database.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>			
+>>>>>>> branch 'master' of https://github.com/cuteprettykara/slipp_spring_2nd.git
 		</plugins>
 	</build>
 </project>
