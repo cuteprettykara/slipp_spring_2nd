@@ -3,31 +3,22 @@ package net.slipp.dao.users;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.annotation.PostConstruct;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
-import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
 import net.slipp.domain.users.User;
 
 public class JdbcUserDao extends JdbcDaoSupport implements UserDao {
 	
-	private static final Logger log = LoggerFactory.getLogger(JdbcUserDao.class);
-
-	@PostConstruct
+/*	@PostConstruct
 	public void initialize() {
 		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
 		populator.addScript(new ClassPathResource("slipp.sql"));
 		DatabasePopulatorUtils.execute(populator, getDataSource());
 		
 		log.debug("database successfully initialized!");
-	}
+	}*/
 
 	/* (non-Javadoc)
 	 * @see net.slipp.dao.users.IUserDao#findById(java.lang.String)
