@@ -115,4 +115,12 @@ public class User {
 			return false;
 		return true;
 	}
+
+	public User update(User updateUser) {
+//		String userId = (String) temp;
+		if (!matchUserId(updateUser.userId)) {
+			throw new IllegalArgumentException();
+		}
+		return new User(updateUser.userId, updateUser.password, updateUser.name, updateUser.email);
+	}
 }
