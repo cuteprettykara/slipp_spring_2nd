@@ -8,13 +8,16 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import net.slipp.domain.users.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/applicationContext.xml")
+@Transactional
 public class JdbcUserDaoTest {
 	
 	private static final Logger log = LoggerFactory.getLogger(JdbcUserDaoTest.class);
@@ -31,11 +34,12 @@ public class JdbcUserDaoTest {
 	}
 
 	@Test
+	@Rollback
 	public void create() {
-		User user = new User("prettykara4",	"4444", "prettykara4", "prettykara4@gmail.com");
+		User user = new User("prettykara2",	"2222", "prettykara2", "prettykara2@gmail.com");
 		userDao.create(user);
 		
-		User actual = userDao.findById("prettykara4");
+		User actual = userDao.findById("prettykara2");
 		assertThat(actual, is(user));
 	}
 }
