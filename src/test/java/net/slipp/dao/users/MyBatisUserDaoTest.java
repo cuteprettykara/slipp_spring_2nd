@@ -33,10 +33,10 @@ public class MyBatisUserDaoTest {
 
 	@Test
 	public void create() {
-		User user = new User("prettykara2",	"2222", "prettykara2", "prettykara2@gmail.com");
+		User user = new User("prettykara3",	"3333", "prettykara3", "prettykara2@gmail.com");
 		userDao.create(user);
 		
-		User actual = userDao.findById("prettykara2");
+		User actual = userDao.findById("prettykara3");
 		assertThat(actual, is(user));
 	}
 	

@@ -4,8 +4,10 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.apache.ibatis.type.Alias;
 import org.hibernate.validator.constraints.Email;
 
+@Alias("User")
 public class User {
 	@NotNull @Size(min=4, max=12) 
 	private String userId;

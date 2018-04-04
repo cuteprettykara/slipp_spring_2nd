@@ -19,7 +19,7 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" 
 		p:dataSource-ref="dataSource"
-		p:mapperLocations="classpath:net/slipp/dao/users/UserMapper.xml"
+		p:configLocation="classpath:mybatis-config.xml"
 	/>
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
