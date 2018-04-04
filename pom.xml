@@ -9,6 +9,7 @@
 
 	<properties>
 		<org.springframework.version>5.0.4.RELEASE</org.springframework.version>
+		<h2.database.version>1.4.197</h2.database.version>
 	</properties>
 
 	<dependencies>
@@ -45,7 +46,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.197</version>
+			<version>${h2.database.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -136,6 +137,22 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			<plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.0.7</version>
+                <configuration>
+                    <url>jdbc:h2:~/slipp</url>
+                    <user>sa</user>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.h2database</groupId>
+                        <artifactId>h2</artifactId>
+                        <version>${h2.database.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>			
 		</plugins>
 	</build>
 </project>
